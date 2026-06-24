@@ -1,0 +1,15 @@
+services:
+  sveltekit:
+    restart: unless-stopped
+    build:
+      context: ./sveltekit
+      dockerfile: Dockerfile
+    ports:
+      - target: 3000
+        mode: ingress
+        published: 3000
+    deploy:
+      resources:
+        reservations:
+          cpus: "0.50"
+          memory: 512M
